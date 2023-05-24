@@ -1,0 +1,9 @@
+*.exe
+*.vscode/
+*.json
+*tempCodeRunnerFile.py
+tempCodeRunnerFile.cpp
+C_projects/
+Python/
+Selenium/
+web_dev/
