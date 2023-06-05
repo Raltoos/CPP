@@ -3,7 +3,6 @@ using namespace std;
 
 int main(){
     string s;
-
     getline(cin,s);
 
     // string temp = "";
@@ -19,12 +18,15 @@ int main(){
     // }
     // cout<<temp;
 
-    bool condi = true;
-    for(int i = 0; condi; i++){
-        if(s[i] == ' '){
-            s.insert(i,"@40");
+    int length = s.length();
+    int i = 0;
+    while(i < s.length()){
+        if (s[i] == ' '){
+            s.replace(i,1,"@40");
+            i+=3;
+            continue;
         }
-        if(i == s.length()) condi = false;
+        i++;
     }
     cout<<s<<endl;
 }

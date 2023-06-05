@@ -23,7 +23,7 @@ int main(){
     // }
     // cout<<"Element at 2nd index: "<<a.at(2)<<endl;
 
-    // vector<int> v;// vector<int> a[5,1]; default 0 initialization if not specified
+    // vector<int> v;// vector<int> a(5,1); default 0 initialization if not specified
     // //vector<int> last(a);
     // cout<<v.capacity()<<endl;
     // v.push_back(1);
