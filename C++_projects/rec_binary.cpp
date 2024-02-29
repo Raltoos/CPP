@@ -24,7 +24,7 @@ int main(){
 
     int size = sizeof(arr)/sizeof(arr[0]);
 
-    int target = 6;
+    int target =1;
 
 
     if(binaryS(arr,size,target)) cout<<"Found"<<endl;

@@ -1,74 +1,48 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-int partition( int arr[], int s, int e) {
-
+int partition(int arr[], int s, int e){
     int pivot = arr[s];
 
-    int cnt = 0;
-    for(int i = s+1; i<=e; i++) {
-        if(arr[i] <=pivot) {
-            cnt++;
-        }
+    int count = 0;
+    for(int i = s + 1; i <= e; i++){
+        if(arr[i] < pivot) count++;
     }
 
-    //place pivot at right position
-    int pivotIndex = s + cnt;
-    swap(arr[pivotIndex], arr[s]);
+    int pivotIndex = s + count;
+    swap(arr[s], arr[pivotIndex]);
 
-    //left and right wala part smbhal lete h 
     int i = s, j = e;
+    while(i < pivotIndex && j > pivotIndex){
+        while(arr[i] < pivot) i++;
+        while(arr[j] > pivot) j--;
 
-    while(i < pivotIndex && j > pivotIndex) {
-
-        while(arr[i] <= pivot) 
-        {
-            i++;
-        }
-
-        while(arr[j] > pivot) {
-            j--;
-        }
-
-        if(i < pivotIndex && j > pivotIndex) {
+        if(i < pivotIndex && j > pivotIndex){
             swap(arr[i++], arr[j--]);
         }
-
     }
 
     return pivotIndex;
-
 }
 
-void quickSort(int arr[], int s, int e) {
+void quickSort(int arr[], int s, int e){
+    if( s >= e) return;
 
-    //base case
-    if(s >= e) 
-        return ;
-
-    //partitioon
-    int p = partition(arr, s, e);
-
-    //left part
-    quickSort(arr, s, p-1);
-
-    //right part 
-    quickSort(arr, p+1, e);
-
+    int ptr = partition(arr, s, e);
+    quickSort(arr, s, ptr - 1);
+    quickSort(arr, ptr + 1, e);
 }
 
-int main() {
+int main(){
 
-    int arr[] = {4,7,1,2,8,6,10};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    int arr[] = {3,1,5,2,9,7};
+    int size = sizeof(arr)/sizeof(int);
 
-    quickSort(arr, 0, n-1);
+    quickSort(arr, 0, size - 1);
 
-    for(int i=0; i<n; i++) 
-    {
-        cout << arr[i] << " ";
-    } cout << endl;
-
+    for(auto i : arr){
+        cout << i << " ";
+    }
 
     return 0;
 }
