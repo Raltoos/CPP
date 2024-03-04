@@ -1,35 +1,20 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-void I_S(int *arr, int size){
+class Node{
+    int data;
+    Node* next;
 
-    for(int i = 0; i < size; i++){
-        int temp = arr[i];
-        int j = i - 1;
-
-        while(j>=0){
-            if(arr[j] > temp){
-                arr[j+1] = arr[j];
-            }else{
-                break;
-            }
-            j--;
-        }
-
-        arr[j+1] = temp;
+    Node(int data){
+        this->data = data;
+        this->next = NULL;
     }
-
-}
+};
 
 int main(){
 
-    int arr[] = {5,2,1,7,3,6,4,8,10,9};
-    int size = sizeof(arr)/sizeof(arr[0]);
+    Node *head = NULL;
 
-    I_S(arr,size);
 
-    for(int i = 0; i < size; i++){
-        cout<<arr[i]<<" ";
-    }
     return 0;
 }
